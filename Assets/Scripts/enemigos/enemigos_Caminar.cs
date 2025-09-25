@@ -4,7 +4,7 @@ public class enemigos_Caminar : MonoBehaviour
 {
     Transform player;
 
-    public float moveSpeed;
+    public EnemyStats enemyStats;
     Vector3 initialScale;
     void Start()
     {
@@ -15,7 +15,7 @@ public class enemigos_Caminar : MonoBehaviour
     void Update()
     {
         // Movimiento hacia el jugador
-        transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, player.position, enemyStats.moveSpeed * Time.deltaTime);
 
         // Volteo manteniendo el tamaño original
         if (player.position.x < transform.position.x)
