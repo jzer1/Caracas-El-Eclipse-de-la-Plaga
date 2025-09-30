@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e466a59e3684ec648878bf8428957c34, type: 3}
-  m_Name: Espada
+  m_Script: {fileID: 11500000, guid: 641dae77517ec304aa535c3ac3bccc49, type: 3}
+  m_Name: Caballero
   m_EditorClassIdentifier: 
-  weapon: 
-  damage: 4
-  attackCooldown: 0.5
-  attackRange: 1
-  hitboxduration: 0.15
-  hitboxOffset: 0.2
-  hitboxOffsetLeft: -0.14
+  maxHealth: 5
+  moveSpeed: 3
+  attackPower: 10
+  defense: 5
+  recoveryRate: 1
+  critChance: 0.1
+  critMultiplier: 2

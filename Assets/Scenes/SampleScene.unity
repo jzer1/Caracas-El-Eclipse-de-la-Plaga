@@ -154,10 +154,8 @@ MonoBehaviour:
   - {fileID: 2745239260160009931, guid: ba764e98ab62a324dabfdccd7bcafc70, type: 3}
   player: {fileID: 1262394462}
   checkerRadius: 0.2
-  terrainMask:
-    serializedVersion: 2
-    m_Bits: 64
-  currentChunck: {fileID: 0}
+  chunkSize: 10
+  CheckerRadius: 5
   spawnedChunks:
   - {fileID: 0}
   - {fileID: 0}
@@ -581,6 +579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
+    - target: {fileID: 4879132546378744871, guid: 5bc51eb70bb5b6245900bd592b59f88d, type: 3}
+      propertyPath: PlayerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: a276df7c6074f1941ae75364b78c15ad, type: 2}
     - target: {fileID: 7733406525969865589, guid: 5bc51eb70bb5b6245900bd592b59f88d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.02

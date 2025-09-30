@@ -1,13 +1,15 @@
-﻿using UnityEngine;
+﻿    using UnityEngine;
 
 public class MovimientoPlayer : MonoBehaviour
 {
-    public float speed = 5f; // Velocidad del jugador
+
     Rigidbody2D rb;
 
     [HideInInspector] public float lastHorizontal;
     [HideInInspector] public float lastVertical;
     [HideInInspector] public Vector2 movement;
+
+    public PlayerStats PlayerStats;
 
     void Start()
     {
@@ -47,7 +49,7 @@ public class MovimientoPlayer : MonoBehaviour
         }
         else
         {
-            rb.linearVelocity = movement * speed;
+            rb.linearVelocity = movement * PlayerStats.moveSpeed;
         }
     }
 
