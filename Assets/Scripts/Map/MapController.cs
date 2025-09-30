@@ -7,40 +7,29 @@ public class MapController : MonoBehaviour
     public List<GameObject> terrainChunks; // Prefabs disponibles
     public GameObject player;
     public float checkerRadius = 0.5f;
-    public LayerMask terrainMask;
-    public GameObject currentChunck;
+    public int chunkSize = 10; // Tamaño del chunk (asumimos que es cuadrado)
+    public float CheckerRadius = 5f; 
 
-    MovimientoPlayer pm;
+
 
     [Header("Optimization")]
     public List<GameObject> spawnedChunks = new List<GameObject>();
-    GameObject latestChunk;
-    public float maxOpDist = 20f;
-    float opDist;
+    public float maxOpDist = 40f; // Distancia máxima para mantener activo un chunk
+    public float optomizerCooldownDur = 0.5f; // Cada cuánto tiempo se optimiza
+
     float optomizerCooldown;
-    public float optomizerCooldownDur = 0.5f;
+    GameObject latestChunk;
 
-    // Guardamos posiciones ocupadas para no duplicar
-    HashSet<Vector3> occupiedPositions = new HashSet<Vector3>();
+    // Grid para controlar duplicados
+    HashSet<Vector3Int> occupiedPositions = new HashSet<Vector3Int>();
 
-    // Diccionario de direcciones → hijos del prefab
-    Dictionary<Vector2Int, string> dirToChild;
 
     void Start()
     {
-        pm = Object.FindFirstObjectByType<MovimientoPlayer>();
+        //genera el primer chunk donde aparece el jugador
+        Vector3Int startGrid = GridPos(player.transform.position);
+        SpawnChunk(startGrid * chunkSize);
 
-        dirToChild = new Dictionary<Vector2Int, string>
-        {
-            { Vector2Int.right, "Right" },
-            { Vector2Int.left, "Left" },
-            { Vector2Int.up, "Up" },
-            { Vector2Int.down, "Down" },
-            { new Vector2Int(1,1), "Right Up" },
-            { new Vector2Int(1,-1), "Right Down" },
-            { new Vector2Int(-1,1), "Left Up" },
-            { new Vector2Int(-1,-1), "Left Down" }
-        };
     }
 
     void Update()
@@ -49,53 +38,48 @@ public class MapController : MonoBehaviour
         ChunkOptimizer();
     }
 
+    //convierte una posición en la grilla de chunks
+    Vector3Int GridPos(Vector3 position)
+    {
+        return new Vector3Int(
+            Mathf.FloorToInt(position.x / chunkSize),
+            Mathf.FloorToInt(position.y / chunkSize),
+            0);
+    }
+
     void ChunkChecker()
     {
-        if (!currentChunck) return;
+        Vector3 playerPos = player.transform.position;
+        Vector3Int currentGrid = GridPos(playerPos);
 
-        Vector2Int dir = pm.MovementDir;
-
-        if (dir != Vector2Int.zero && dirToChild.ContainsKey(dir))
+        for (int x=-1; x<= 1; x++)
         {
-            string childName = dirToChild[dir];
-            Transform child = currentChunck.transform.Find(childName);
 
-            if (child && !Physics2D.OverlapCircle(child.position, checkerRadius, terrainMask))
+            for(int y=-1; y <= 1; y++)
             {
-                SpawnChunk(child.position);
-            }
 
-            // 🔥 Extra: si es diagonal, también revisamos los ejes
-            if (dir.x != 0 && dirToChild.ContainsKey(new Vector2Int(dir.x, 0)))
-            {
-                string sideChild = dirToChild[new Vector2Int(dir.x, 0)];
-                Transform side = currentChunck.transform.Find(sideChild);
-                if (side && !Physics2D.OverlapCircle(side.position, checkerRadius, terrainMask))
+                Vector3Int checkGrid =currentGrid + new Vector3Int(x, y, 0);
+                Vector3 spawnPos = checkGrid * chunkSize;
+
+                if(!occupiedPositions.Contains(checkGrid))
                 {
-                    SpawnChunk(side.position);
-                }
-            }
-            if (dir.y != 0 && dirToChild.ContainsKey(new Vector2Int(0, dir.y)))
-            {
-                string sideChild = dirToChild[new Vector2Int(0, dir.y)];
-                Transform side = currentChunck.transform.Find(sideChild);
-                if (side && !Physics2D.OverlapCircle(side.position, checkerRadius, terrainMask))
-                {
-                    SpawnChunk(side.position);
+                    SpawnChunk(spawnPos);
                 }
             }
         }
+
     }
 
     void SpawnChunk(Vector3 position)
     {
-        // Evita duplicados
-        if (occupiedPositions.Contains(position)) return;
+        Vector3Int gridPos = GridPos(position);
 
-        int rand = Random.Range(0, terrainChunks.Count);
-        latestChunk = Instantiate(terrainChunks[rand], position, Quaternion.identity);
+        if(occupiedPositions.Contains(gridPos)) return;
+
+        int rend = Random.Range(0,terrainChunks.Count);
+        latestChunk = Instantiate(terrainChunks[rend], position, Quaternion.identity);
         spawnedChunks.Add(latestChunk);
-        occupiedPositions.Add(position);
+        occupiedPositions.Add(gridPos);
     }
 
     void ChunkOptimizer()
@@ -107,11 +91,9 @@ public class MapController : MonoBehaviour
 
         foreach (GameObject chunk in spawnedChunks)
         {
-            if (!chunk) continue;
-
-            opDist = Vector3.Distance(player.transform.position, chunk.transform.position);
-
-            if (opDist > maxOpDist)
+            if(!chunk) continue;
+            float dist = Vector3.Distance(player.transform.position, chunk.transform.position);
+            if(dist>maxOpDist)
                 chunk.SetActive(false);
             else
                 chunk.SetActive(true);
