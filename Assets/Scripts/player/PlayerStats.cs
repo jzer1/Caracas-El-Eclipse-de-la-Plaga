@@ -3,11 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "NewPlayerStats", menuName = "Player/PlayerStats")]
 public class PlayerStats : ScriptableObject
 {
-    public int maxHealth = 5;
+    public float maxHealth = 5;
     public float moveSpeed = 5f;
-    public int attackPower = 10;
-    public int defense = 5;
-    public int recoveryRate = 1; // health points recovered per second
+    public float attackPower = 10;
+    public float defense = 5;
+    public float recoveryRate = 1; // health points recovered per second
 
     [Header("Extras")]
     public float critChance = 0.1f; // 10% crítico

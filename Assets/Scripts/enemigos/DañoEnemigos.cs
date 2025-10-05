@@ -29,8 +29,23 @@ public class DañoEnemigos : MonoBehaviour
 
     void Die()
     {
+        DropItems dropSystem = GetComponent<DropItems>();
+        if (dropSystem != null)
+        {
+            dropSystem.DropItem();
+        }
         // Aquí puedes agregar efectos de muerte, animaciones, etc.
         Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.CompareTag("Player"))
+        {
+            PlayerNivel player = col.gameObject.GetComponent<PlayerNivel>();
+            player.TakeDamage(CurrrentDamage);
+        }
+        
     }
 
 }

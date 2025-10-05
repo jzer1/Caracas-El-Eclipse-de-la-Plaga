@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641dae77517ec304aa535c3ac3bccc49, type: 3}
   m_Name: Caballero
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 100
   moveSpeed: 3
   attackPower: 10
-  defense: 5
+  defense: 10
   recoveryRate: 1
   critChance: 0.1
   critMultiplier: 2
