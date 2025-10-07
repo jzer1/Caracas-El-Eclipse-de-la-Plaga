@@ -1,10 +1,21 @@
 using NUnit.Framework;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class PlayerNivel : MonoBehaviour
 {
+
+    [Header("Retroceso (Knockback)")]
+    public float knockbackForce = 10f;    // Fuerza del empuje (ajusta según necesites)
+    public float knockbackDuration = 0.25f; // Duración del retroceso en segundos
+
+    // El estado CRUCIAL que será leído por el script de movimiento
+    public bool isKnockedBack = false;
+
+    private Rigidbody2D rb;
+
     public PlayerStats playerStats;
 
     float currentHealth;
@@ -15,8 +26,8 @@ public class PlayerNivel : MonoBehaviour
 
     [Header("Fragmentos / Level")]
     public int fragments;        // Los fragmentos actuales del jugador
-    public int level;            // Nivel actual del h�roe
-    public int fragmentsCost;    // Cu�ntos fragmentos cuesta subir de nivel
+    public int level;            // Nivel actual del héroe
+    public int fragmentsCost;    // Cuántos fragmentos cuesta subir de nivel
 
     [System.Serializable]
     public class LevelRange
@@ -27,7 +38,7 @@ public class PlayerNivel : MonoBehaviour
     }
 
     [Header("I-Frame")]
-    public float invincibilityDuration = 1f; // Duraci�n de los I-Frames en segundos
+    public float invincibilityDuration = 1f; // Duración de los I-Frames en segundos
     private float invincibilityTimer = 0f;
     private bool isInvincible = false;
 
@@ -40,6 +51,13 @@ public class PlayerNivel : MonoBehaviour
         currentMoveSpeed = playerStats.moveSpeed;
         currentAttackPower = playerStats.attackPower;
         currentDefense = playerStats.defense;
+        rb = GetComponent<Rigidbody2D>();
+
+        // **VERIFICA ESTO:** Si sale 'null', el Rigidbody2D no está adjunto.
+        if (rb == null)
+        {
+            Debug.LogError("PlayerNivel: ¡Rigidbody2D NO ENCONTRADO! El retroceso fallará.");
+        }
     }
 
     private void Start()
@@ -60,13 +78,13 @@ public class PlayerNivel : MonoBehaviour
         }
     }
 
-    // M�todo para a�adir fragmentos (cuando matas enemigos)
+    // Método para añadir fragmentos (cuando matas enemigos)
     public void AddFragments(int amount)
     {
         fragments += amount;
     }
 
-    // M�todo que intenta subir de nivel si el jugador tiene fragmentos suficientes
+    // Método que intenta subir de nivel si el jugador tiene fragmentos suficientes
     public bool TryLevelUp()
     {
         if (fragments >= fragmentsCost)
@@ -86,13 +104,13 @@ public class PlayerNivel : MonoBehaviour
 
             fragmentsCost += costIncrease;
 
-            // Aqu� puedes agregar mejoras al subir de nivel
+            // Aquí puedes agregar mejoras al subir de nivel
             UpgradeStats();
 
             return true;
         }
 
-        return false; // No ten�a suficientes fragmentos
+        return false; // No tenía suficientes fragmentos
     }
 
     // Ejemplo de mejora de stats
@@ -104,14 +122,16 @@ public class PlayerNivel : MonoBehaviour
     }
 
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector2 sourcePosition)
     {
         if (!isInvincible)
         {
             float effectiveDamage = Mathf.Max(damage - currentDefense, 0);
             currentHealth -= effectiveDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, playerStats.maxHealth);
-            
+
+            ApplyKnockback(sourcePosition);
+
             isInvincible = true;
             if (currentHealth <= 0)
             {
@@ -119,6 +139,26 @@ public class PlayerNivel : MonoBehaviour
             }
         }
     }
+
+    private void ApplyKnockback(Vector2 sourcePosition)
+    {
+        isKnockedBack = true;
+        rb.linearVelocity = Vector2.zero; // Detiene cualquier movimiento previo
+        Vector2 knockbackDirection = ((Vector2)transform.position - sourcePosition).normalized;
+
+        Debug.Log("APLICANDO KNOCKBACK. Dirección: " + knockbackDirection + " Fuerza: " + knockbackForce);
+ 
+        rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        StartCoroutine(StopKnockbackRoutine(knockbackDuration));
+    }
+
+    IEnumerator StopKnockbackRoutine(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isKnockedBack = false;
+        rb.linearVelocity = Vector2.zero; // Detiene el movimiento después del knockback
+    }
+
     void Die()
     {
         Debug.Log("Player has died.");

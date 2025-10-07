@@ -5,6 +5,8 @@ public class MovimientoPlayer : MonoBehaviour
 
     Rigidbody2D rb;
 
+    private PlayerNivel playerNivel;
+
     [HideInInspector] public float lastHorizontal;
     [HideInInspector] public float lastVertical;
     [HideInInspector] public Vector2 movement;
@@ -14,6 +16,8 @@ public class MovimientoPlayer : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        playerNivel = GetComponent<PlayerNivel>();
     }
 
     void Update()
@@ -42,6 +46,10 @@ public class MovimientoPlayer : MonoBehaviour
 
     void Move()
     {
+        if (playerNivel != null && playerNivel.isKnockedBack)
+        {
+            return;
+        }
         // Si no hay entrada de movimiento, la velocidad se establece en cero
         if (movement == Vector2.zero)
         {
