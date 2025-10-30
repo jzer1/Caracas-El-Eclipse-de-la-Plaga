@@ -23,11 +23,12 @@ public class SwordHitbox : MonoBehaviour
 
         hitIds.Add(id);
 
-        // 👇 Buscar el componente DañoEnemigos en el objeto golpeado
-        DañoEnemigos enemy = other.GetComponent<DañoEnemigos>();
+        // Buscar el componente DañoEnemigos en el objeto golpeado
+        DañoEnemigos enemy = other.GetComponentInParent<DañoEnemigos>();
         if (enemy != null)
         {
-            enemy.TakeDamage(damage);
+            Vector2 hitDirection = (enemy.transform.position - transform.position).normalized;
+            enemy.TakeDamage(damage, hitDirection);
         }
     }
 }
