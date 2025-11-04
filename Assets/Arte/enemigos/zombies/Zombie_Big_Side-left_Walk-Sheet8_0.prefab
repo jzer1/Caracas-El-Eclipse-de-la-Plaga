@@ -137,6 +137,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -158,6 +160,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1768887539
   m_SortingLayer: 3
   m_SortingOrder: 5
@@ -252,7 +255,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25c5016408e54bb43928253aa0b1d2b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   enemyStats: {fileID: 11400000, guid: d07eeaa07da26b641ab93ecae2ed19a7, type: 2}
+  obstacleLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detectionDistance: 1
+  avoidanceTime: 0.5
 --- !u!114 &6496461006553298338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,6 +277,7 @@ MonoBehaviour:
   enemyStats: {fileID: 11400000, guid: d07eeaa07da26b641ab93ecae2ed19a7, type: 2}
   knockbackForce: 8
   knockbackDuration: 0.15
+  despawnDistance: 20
 --- !u!50 &5514221176126341229
 Rigidbody2D:
   serializedVersion: 5
@@ -280,7 +290,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -313,3 +323,8 @@ MonoBehaviour:
     dropChance: 84.2
     minAmount: 1
     maxAmount: 3
+  - itemName: PocionCura
+    itemPrefab: {fileID: 568846811333521702, guid: 8364f7850f1f920479618d2ea384911e, type: 3}
+    dropChance: 30
+    minAmount: 1
+    maxAmount: 1
