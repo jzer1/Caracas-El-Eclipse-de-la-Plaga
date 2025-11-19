@@ -18,6 +18,8 @@ public class PlayerNivel : MonoBehaviour
 
     public PlayerStats playerStats;
     private Animator Animator;
+    public PlayerHealthUI healthUI;
+
 
     float currentHealth;
     float currentRecoveryRate;
@@ -137,6 +139,8 @@ public class PlayerNivel : MonoBehaviour
             currentHealth -= effectiveDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, playerStats.maxHealth);
 
+
+            healthUI.SetHealth(currentHealth, playerStats.maxHealth);
             Animator.SetTrigger("Hurt");
 
             ApplyKnockback(sourcePosition);
@@ -177,6 +181,11 @@ public class PlayerNivel : MonoBehaviour
     {
         currentHealth = Mathf.Min(currentHealth + cantidad, playerStats.maxHealth);
         Debug.Log("Vida actual: " + currentHealth);
+
+        if (healthUI != null)
+        {
+            healthUI.SetHealth(currentHealth, playerStats.maxHealth);
+        }
     }
 
 }
