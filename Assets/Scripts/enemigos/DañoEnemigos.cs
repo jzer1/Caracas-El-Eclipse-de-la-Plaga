@@ -14,6 +14,10 @@ public class DañoEnemigos : MonoBehaviour
     public float knockbackForce = 3f;
     public float knockbackDuration = 0.15f;
 
+
+    public float despawnDistance = 20f; // Distancia para despawn
+    Transform player;
+
     private bool isKnockback= false;
 
     void Awake()
@@ -22,6 +26,20 @@ public class DañoEnemigos : MonoBehaviour
         CurrentHealth = enemyStats.maxHealth;
         CurrrentDamage = enemyStats.damage;
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    void Update()
+    {
+        // Despawn si está muy lejos del jugador
+        if (Vector2.Distance(transform.position, player.position) >= despawnDistance)
+        {
+            ReturnEnemy();
+        }
     }
 
     public void TakeDamage(float damage ,Vector2 hitDirection)
@@ -80,5 +98,17 @@ public class DañoEnemigos : MonoBehaviour
             }
         }
     }
-  
+
+    private void OnDestroy()
+    {
+       EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        es.OnEnemyKilled();
+    }
+
+    void ReturnEnemy()
+    {
+        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        transform.position = player.position + es.spawnPoints[Random.Range(0, es.spawnPoints.Count)].position;
+    }
+
 }

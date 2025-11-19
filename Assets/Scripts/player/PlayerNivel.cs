@@ -17,6 +17,7 @@ public class PlayerNivel : MonoBehaviour
     private Rigidbody2D rb;
 
     public PlayerStats playerStats;
+    private Animator Animator;
 
     float currentHealth;
     float currentRecoveryRate;
@@ -57,6 +58,12 @@ public class PlayerNivel : MonoBehaviour
         if (rb == null)
         {
             Debug.LogError("PlayerNivel: ¡Rigidbody2D NO ENCONTRADO! El retroceso fallará.");
+        }
+
+        Animator = GetComponent<Animator>();
+        if (Animator == null)
+        {
+            Debug.LogError("PlayerNivel: ¡Animator NO ENCONTRADO!");
         }
     }
 
@@ -130,6 +137,8 @@ public class PlayerNivel : MonoBehaviour
             currentHealth -= effectiveDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, playerStats.maxHealth);
 
+            Animator.SetTrigger("Hurt");
+
             ApplyKnockback(sourcePosition);
 
             isInvincible = true;
@@ -163,4 +172,11 @@ public class PlayerNivel : MonoBehaviour
     {
         Debug.Log("Player has died.");
     }
+
+    public void Curar(float cantidad)
+    {
+        currentHealth = Mathf.Min(currentHealth + cantidad, playerStats.maxHealth);
+        Debug.Log("Vida actual: " + currentHealth);
+    }
+
 }
