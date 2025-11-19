@@ -101,13 +101,13 @@ public class DañoEnemigos : MonoBehaviour
 
     private void OnDestroy()
     {
-       EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        EnemySpawner es = Object.FindFirstObjectByType<EnemySpawner>();
         es.OnEnemyKilled();
     }
 
     void ReturnEnemy()
     {
-        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        EnemySpawner es = Object.FindFirstObjectByType<EnemySpawner>();
         transform.position = player.position + es.spawnPoints[Random.Range(0, es.spawnPoints.Count)].position;
     }
 
