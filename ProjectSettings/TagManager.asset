@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -12,13 +13,13 @@ TagManager:
   - Water
   - UI
   - Terrain
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - props
+  - Player
+  - PlayerAttack
+  - Item
+  - EnemyHurtbox
+  - Enemy
   - 
   - 
   - 
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2526079757
+    locked: 0
+  - name: PlayerAttack
+    uniqueID: 3290248381
     locked: 0
   m_RenderingLayers:
   - Default
