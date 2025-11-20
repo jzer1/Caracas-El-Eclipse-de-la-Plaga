@@ -3,6 +3,7 @@ using UnityEngine.Rendering;
 
 public class DañoEnemigos : MonoBehaviour
 {
+    public PlayersoundController playerSoundController;
     public EnemyStats enemyStats;
 
     float CurrentMoveSpeed;

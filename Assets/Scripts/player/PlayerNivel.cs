@@ -10,6 +10,8 @@ public class PlayerNivel : MonoBehaviour
 {
 
     [Header("Retroceso (Knockback)")]
+
+    public PlayersoundController playerSoundController;
     public float knockbackForce = 10f;    // Fuerza del empuje (ajusta según necesites)
     public float knockbackDuration = 0.25f; // Duración del retroceso en segundos
 
@@ -140,6 +142,7 @@ public class PlayerNivel : MonoBehaviour
     {
         if (!isInvincible)
         {
+            playerSoundController.Playdaño();
             float effectiveDamage = Mathf.Max(damage - currentDefense, 0);
             currentHealth -= effectiveDamage;
             currentHealth = Mathf.Clamp(currentHealth, 0, playerStats.maxHealth);
