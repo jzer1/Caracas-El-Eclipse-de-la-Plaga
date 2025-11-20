@@ -2,6 +2,7 @@
 
 public class PlayerAttack : MonoBehaviour
 {
+    public PlayersoundController playerSoundController;
     public WeaponStats weapon;          // referencia al arma (ScriptableObject)
     public GameObject swordHitbox;      // referencia al objeto hitbox
     private Animator animator;          // animador del player
@@ -23,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isAttacking && Time.time >= lastAttackTime + weapon.attackCooldown)
         {
             Attack();
+            playerSoundController.Playatacar();
         }
     }
 
