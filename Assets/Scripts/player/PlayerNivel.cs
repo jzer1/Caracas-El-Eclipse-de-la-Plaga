@@ -151,7 +151,15 @@ public class PlayerNivel : MonoBehaviour
             isInvincible = true;
             if (currentHealth <= 0)
             {
+                
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.GameOver();
+
+                }
                 Die();
+
+                
             }
         }
     }
