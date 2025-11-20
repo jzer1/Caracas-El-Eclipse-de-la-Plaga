@@ -31,6 +31,7 @@ public class PlayerNivel : MonoBehaviour
     public int fragments;        // Los fragmentos actuales del jugador
     public int level;            // Nivel actual del héroe
     public int fragmentsCost;    // Cuántos fragmentos cuesta subir de nivel
+    public FragmentUI fragmentUI;
 
     [System.Serializable]
     public class LevelRange
@@ -91,6 +92,8 @@ public class PlayerNivel : MonoBehaviour
     public void AddFragments(int amount)
     {
         fragments += amount;
+        fragmentUI.UpdateCount(fragments);
+
     }
 
     // Método que intenta subir de nivel si el jugador tiene fragmentos suficientes
