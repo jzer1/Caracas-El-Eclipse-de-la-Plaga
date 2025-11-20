@@ -1,0 +1,83 @@
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager instance;
+    public GameObject gameOverPanel;
+    public TextMeshProUGUI finalScoreText;
+    public Button reiniciarButton;
+    public Button menuButton;
+
+    private bool gameOverActivo = false;
+
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        if (reiniciarButton != null)
+            reiniciarButton.onClick.AddListener(ReiniciarJuego);
+
+        if (menuButton != null)
+            menuButton.onClick.AddListener(VolverAlMenu);
+
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (gameOverActivo)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                ReiniciarJuego();
+            }
+
+            if (Input.GetKeyDown(KeyCode.M) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                VolverAlMenu();
+            }
+        }
+    }
+
+
+    public void GameOver()
+    {
+
+        if (gameOverActivo) return;
+        gameOverActivo = true;
+
+        if (gameOverPanel != null)
+        {
+            gameOverPanel.SetActive(true);
+        }
+        if (finalScoreText != null)
+        {
+            finalScoreText.text = "Game Over";
+        }
+    }
+
+    public void ReiniciarJuego()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(
+            UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+    }
+
+    public void VolverAlMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+    }
+}
