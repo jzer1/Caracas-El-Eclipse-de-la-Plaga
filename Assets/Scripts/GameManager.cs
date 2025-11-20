@@ -17,13 +17,14 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);  <- lo quitamos
         }
         else
         {
             Destroy(gameObject);
         }
     }
+
 
     private void Start()
     {
@@ -56,28 +57,37 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
         if (gameOverActivo) return;
         gameOverActivo = true;
 
         if (gameOverPanel != null)
-        {
             gameOverPanel.SetActive(true);
-        }
+
+
         if (finalScoreText != null)
-        {
             finalScoreText.text = "Game Over";
-        }
+
+        Time.timeScale = 0f; // Pausar el juego
     }
 
     public void ReiniciarJuego()
     {
+        if (gameOverPanel != null)
+            gameOverPanel.SetActive(false);
+
+        gameOverActivo = false;
+        Time.timeScale = 1f; // Reanudar tiempo
         UnityEngine.SceneManagement.SceneManager.LoadScene(
             UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
     }
 
+
     public void VolverAlMenu()
     {
+        Time.timeScale = 1f; // Reanudar el tiempo
         UnityEngine.SceneManagement.SceneManager.LoadScene("Menu");
+
+        gameOverPanel.SetActive(false);
     }
+
 }
