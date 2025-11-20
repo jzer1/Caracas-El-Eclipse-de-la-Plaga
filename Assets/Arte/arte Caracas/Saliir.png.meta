@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: 16c90c1e8c5f46442b07b2e448c10959
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6331741347926163351
+    second: Saliir_0
+  - first:
+      213: 2122791665264884095
+    second: Saliir_1
+  - first:
+      213: -6162207281126221728
+    second: Saliir_2
+  - first:
+      213: 3559364873568509427
+    second: Saliir_3
+  - first:
+      213: 584497520316506316
+    second: Saliir_4
+  - first:
+      213: -4230349952047986226
+    second: Saliir_5
+  - first:
+      213: -6049212310261335570
+    second: Saliir_6
+  - first:
+      213: 1466834868258741550
+    second: Saliir_7
+  - first:
+      213: -2637851389913721239
+    second: Saliir_8
+  - first:
+      213: 6078082730805468286
+    second: Saliir_9
+  - first:
+      213: 4386687881963346145
+    second: Saliir_10
+  - first:
+      213: -878758352034454841
+    second: Saliir_11
+  - first:
+      213: -4961488884386136977
+    second: Saliir_12
+  - first:
+      213: -1251028850761588218
+    second: Saliir_13
+  - first:
+      213: -324360262726776922
+    second: Saliir_14
+  - first:
+      213: -3449950937526535157
+    second: Saliir_15
+  - first:
+      213: -972367501850334496
+    second: Saliir_16
+  - first:
+      213: 516054174942096326
+    second: Saliir_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Saliir_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 333
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96045338ac22128a0800000000000000
+      internalID: -6331741347926163351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_1
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 384
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f79f544c5cba57d10800000000000000
+      internalID: 2122791665264884095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_2
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 714
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 068552860217b7aa0800000000000000
+      internalID: -6162207281126221728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_3
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 337
+        width: 104
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fddd038e77656130800000000000000
+      internalID: 3559364873568509427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 361
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0ef8ed56d8c1800800000000000000
+      internalID: 584497520316506316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 90
+        height: 282
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec9c698c127ca45c0800000000000000
+      internalID: -4230349952047986226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_6
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 58
+        width: 94
+        height: 281
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee9f3f33471ec0ca0800000000000000
+      internalID: -6049212310261335570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_7
+      rect:
+        serializedVersion: 2
+        x: 872
+        y: 321
+        width: 15
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2d18b28a8e3b5410800000000000000
+      internalID: 1466834868258741550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_8
+      rect:
+        serializedVersion: 2
+        x: 795
+        y: 84
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9661ce50328746bd0800000000000000
+      internalID: -2637851389913721239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_9
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 58
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7c98156a00b95450800000000000000
+      internalID: 6078082730805468286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_10
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 55
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e89fe01365a0ec30800000000000000
+      internalID: 4386687881963346145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_11
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 63
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c224974fe50ec3f0800000000000000
+      internalID: -878758352034454841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 108
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6c7d119520452bb0800000000000000
+      internalID: -4961488884386136977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_13
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 53
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602279273e373aee0800000000000000
+      internalID: -1251028850761588218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_14
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 53
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a70be04f04af7bf0800000000000000
+      internalID: -324360262726776922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_15
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 0
+        width: 106
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0c7434a6ef4f10d0800000000000000
+      internalID: -3449950937526535157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_16
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 27
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eaa31da8e47182f0800000000000000
+      internalID: -972367501850334496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Saliir_17
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 17
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cbe746b984692700800000000000000
+      internalID: 516054174942096326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Saliir_0: -6331741347926163351
+      Saliir_1: 2122791665264884095
+      Saliir_10: 4386687881963346145
+      Saliir_11: -878758352034454841
+      Saliir_12: -4961488884386136977
+      Saliir_13: -1251028850761588218
+      Saliir_14: -324360262726776922
+      Saliir_15: -3449950937526535157
+      Saliir_16: -972367501850334496
+      Saliir_17: 516054174942096326
+      Saliir_2: -6162207281126221728
+      Saliir_3: 3559364873568509427
+      Saliir_4: 584497520316506316
+      Saliir_5: -4230349952047986226
+      Saliir_6: -6049212310261335570
+      Saliir_7: 1466834868258741550
+      Saliir_8: -2637851389913721239
+      Saliir_9: 6078082730805468286
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerNivel : MonoBehaviour
 {
@@ -198,5 +200,43 @@ public class PlayerNivel : MonoBehaviour
             healthUI.SetHealth(currentHealth, playerStats.maxHealth);
         }
     }
+    // Llamado cuando muere un enemigo para ver si ya no queda ninguno
+    public void CheckEnemiesRemaining()
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemies.Length == 0)
+        {
+            NextLevel();
+        }
+    }
+
+    public void OnAllEnemiesKilled()
+    {
+        Debug.Log("[PlayerNivel] Todos los enemigos han sido derrotados. Cambiando de nivel...");
+        NextLevel();
+    }
+
+    void NextLevel()
+    {
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
+
+        Debug.Log("[PlayerNivel] Escena actual: " + currentIndex +
+                " | Siguiente: " + nextIndex +
+                " | Total escenas en BuildSettings: " + SceneManager.sceneCountInBuildSettings);
+
+        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextIndex);
+        }
+        else
+        {
+            Debug.LogWarning("[PlayerNivel] No hay más escenas en BuildSettings. Fin del juego o falta configuración.");
+            // Aquí podrías mostrar pantalla de victoria final.
+        }
+    }
+
+
 
 }

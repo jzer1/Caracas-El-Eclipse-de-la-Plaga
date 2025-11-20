@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
 
         gameOverActivo = false;
         Time.timeScale = 1f; // Reanudar tiempo
-        Time.timeScale = 1f; // Reanudar el tiempo
         UnityEngine.SceneManagement.SceneManager.LoadScene("mapa1");
     }
 
